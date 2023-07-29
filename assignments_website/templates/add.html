@@ -1,0 +1,36 @@
+code templates/add.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignments Website</title>
+</head>
+<body>
+    <h1>Assignments</h1>
+    <ul>
+        {% for assignment in assignments %}
+        <li>
+            <strong>{{ assignment[1] }}</strong><br>
+            {{ assignment[2] }}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/add">Add Assignment</a>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Assignment</title>
+</head>
+<body>
+    <h1>Add Assignment</h1>
+    <form action="/add" method="post">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>
